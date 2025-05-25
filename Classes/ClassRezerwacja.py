@@ -6,7 +6,19 @@ from typing import List
 from datetime import date
 
 class Rezerwacja(BaseModel):
+    """
+    Klasa Rezerwacja
+        Atrybuty:
+            -klient: obiekt
+            -dodatki: Lista obiektów
+            -wariant: obiekt
+            -data_zakupu: date Default - today()
+    """
+
     klient: Klient
     dodatki: List[Dodatki]
     wariant: Wariant
     data_zakupu: date = Field(default_factory=date.today())
+
+    def __str__(self):
+        return (f"{self.klient}\nDodatki: {self.dodatki}\nWariant: {self.wariant}\nData: {self.data_zakupu}")
