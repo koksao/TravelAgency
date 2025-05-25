@@ -1,9 +1,12 @@
 #### BIBLIOTECZKI: pydantic, email-validator
 
-from Classes import Dodatki, Klient, Rezerwacja, Wariant, Wycieczka, Transport
+from models import Klient
 from datetime import date
+from fastapi import FastAPI
+from database import Base, engine
+import models
 
-Klient1_Tomek = Klient(imie="Tomek",nazwisko="Kozlowski",email="tomekkoz@o2.pl")
+"""Klient1_Tomek = Klient(imie="Tomek",nazwisko="Kozlowski",email="tomekkoz@o2.pl")
 
 Trans1 = Transport(typ="bus",koszt=100)
 
@@ -15,4 +18,6 @@ Wyc1_Zakopane = Wycieczka(tytul="Wycieczka grupowa do zakopanego",organizator="J
 
 Rez1_Zakopane_Tomek = Rezerwacja(klient=Klient1_Tomek,dodatki=[Dod1_Zakopane], wariant=War1_Zakopane,data_zakupu=date(2025,5,1))
 
-print(Rez1_Zakopane_Tomek)
+"""
+
+Base.metadata.create_all(bind=engine)

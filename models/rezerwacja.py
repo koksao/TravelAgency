@@ -1,4 +1,4 @@
-from .ClassDodatki import Dodatki
+"""from .ClassDodatki import Dodatki
 from .ClassKlient import Klient
 from .ClassWariant import Wariant
 from pydantic import BaseModel, Field
@@ -6,14 +6,6 @@ from typing import List
 from datetime import date
 
 class Rezerwacja(BaseModel):
-    """
-    Klasa Rezerwacja
-        Atrybuty:
-            -klient: obiekt
-            -dodatki: Lista obiektów
-            -wariant: obiekt
-            -data_zakupu: date Default - today()
-    """
 
     klient: Klient
     dodatki: List[Dodatki]
@@ -22,3 +14,4 @@ class Rezerwacja(BaseModel):
 
     def __str__(self):
         return (f"{self.klient}\nDodatki: {self.dodatki}\nWariant: {self.wariant}\nData: {self.data_zakupu}")
+"""
