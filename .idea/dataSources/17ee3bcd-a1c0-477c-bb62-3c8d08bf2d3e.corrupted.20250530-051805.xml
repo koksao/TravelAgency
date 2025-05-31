@@ -3,9 +3,9 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>dmy</DateStyle>
-      <IntrospectionStateNumber>756</IntrospectionStateNumber>
+      <IntrospectionStateNumber>762</IntrospectionStateNumber>
       <ServerVersion>17.5</ServerVersion>
-      <StartupTime>1748624876</StartupTime>
+      <StartupTime>1748181129</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -798,10 +798,10 @@ false Zulu
 2200||6171|C|G
 2200||-9223372036854775808|U|G
 2200||6171|U|G
-14650||10|C|G
-14650||-9223372036854775808|U|G
-14650||10|U|G</Grants>
-      <IntrospectionStateNumber>756</IntrospectionStateNumber>
+14751||10|C|G
+14751||-9223372036854775808|U|G
+14751||10|U|G</Grants>
+      <IntrospectionStateNumber>762</IntrospectionStateNumber>
       <ObjectId>16388</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4170,15 +4170,15 @@ false Zulu
     </cast>
     <extension id="258" parent="2" name="plpgsql">
       <Comment>PL/pgSQL procedural language</Comment>
-      <ObjectId>15000</ObjectId>
+      <ObjectId>15101</ObjectId>
       <StateNumber>692</StateNumber>
       <Version>1.0</Version>
       <ExtSchemaId>11</ExtSchemaId>
       <ExtSchemaName>pg_catalog</ExtSchemaName>
-      <MemberIds>15001
-15002
-15003
-15004</MemberIds>
+      <MemberIds>15102
+15103
+15104
+15105</MemberIds>
     </extension>
     <language id="259" parent="2" name="c">
       <Comment>dynamically-loaded C functions</Comment>
@@ -4200,7 +4200,7 @@ false Zulu
       <HandlerSchema>pg_catalog</HandlerSchema>
       <InlineHandlerName>plpgsql_inline_handler</InlineHandlerName>
       <InlineHandlerSchema>pg_catalog</InlineHandlerSchema>
-      <ObjectId>15004</ObjectId>
+      <ObjectId>15105</ObjectId>
       <StateNumber>692</StateNumber>
       <Trusted>1</Trusted>
       <ValidatorName>plpgsql_validator</ValidatorName>
@@ -4215,7 +4215,7 @@ false Zulu
       <ValidatorSchema>pg_catalog</ValidatorSchema>
     </language>
     <schema id="263" parent="2" name="information_schema">
-      <ObjectId>14650</ObjectId>
+      <ObjectId>14751</ObjectId>
       <StateNumber>538</StateNumber>
       <OwnerName>postgres</OwnerName>
     </schema>
@@ -4228,8 +4228,8 @@ false Zulu
     <schema id="265" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>756</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2025-05-30.17:28:11</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>762</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2025-05-25.15:12:16</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>532</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4238,445 +4238,225 @@ false Zulu
       <Labels>samolot
 bus
 indywidualny</Labels>
-      <ObjectId>16390</ObjectId>
-      <StateNumber>751</StateNumber>
+      <ObjectId>16401</ObjectId>
+      <StateNumber>758</StateNumber>
       <SubCategory>enum</SubCategory>
       <SubKind>enum</SubKind>
       <OwnerName>postgres</OwnerName>
     </object-type>
     <sequence id="267" parent="265" name="dodatki_id_seq">
-      <ObjectId>16397</ObjectId>
+      <ObjectId>16415</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>751</StateNumber>
+      <StateNumber>761</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>postgres</OwnerName>
     </sequence>
     <sequence id="268" parent="265" name="klienci_id_seq">
+      <ObjectId>16389</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>754</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <OwnerName>postgres</OwnerName>
+    </sequence>
+    <sequence id="269" parent="265" name="transporty_id_seq">
       <ObjectId>16407</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>751</StateNumber>
+      <StateNumber>758</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <sequence id="269" parent="265" name="rezerwacje_id_seq">
-      <ObjectId>16444</ObjectId>
-      <SequenceIdentity>1</SequenceIdentity>
-      <StartValue>1</StartValue>
-      <StateNumber>755</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <OwnerName>postgres</OwnerName>
-    </sequence>
-    <sequence id="270" parent="265" name="transporty_id_seq">
-      <ObjectId>16418</ObjectId>
-      <SequenceIdentity>1</SequenceIdentity>
-      <StartValue>1</StartValue>
-      <StateNumber>751</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <OwnerName>postgres</OwnerName>
-    </sequence>
-    <sequence id="271" parent="265" name="warianty_id_seq">
-      <ObjectId>16426</ObjectId>
-      <SequenceIdentity>1</SequenceIdentity>
-      <StartValue>1</StartValue>
-      <StateNumber>755</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <OwnerName>postgres</OwnerName>
-    </sequence>
-    <sequence id="272" parent="265" name="wycieczki_id_seq">
-      <ObjectId>16435</ObjectId>
-      <SequenceIdentity>1</SequenceIdentity>
-      <StartValue>1</StartValue>
-      <StateNumber>755</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <OwnerName>postgres</OwnerName>
-    </sequence>
-    <table id="273" parent="265" name="dodatki">
-      <ObjectId>16398</ObjectId>
-      <StateNumber>751</StateNumber>
+    <table id="270" parent="265" name="dodatki">
+      <ObjectId>16416</ObjectId>
+      <StateNumber>761</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="274" parent="265" name="klienci">
+    <table id="271" parent="265" name="klienci">
+      <ObjectId>16390</ObjectId>
+      <StateNumber>754</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <table id="272" parent="265" name="transporty">
       <ObjectId>16408</ObjectId>
-      <StateNumber>755</StateNumber>
+      <StateNumber>758</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="275" parent="265" name="rezerwacje">
-      <ObjectId>16445</ObjectId>
-      <StateNumber>755</StateNumber>
-      <AccessMethodId>2</AccessMethodId>
-      <OwnerName>postgres</OwnerName>
-    </table>
-    <table id="276" parent="265" name="transporty">
-      <ObjectId>16419</ObjectId>
-      <StateNumber>751</StateNumber>
-      <AccessMethodId>2</AccessMethodId>
-      <OwnerName>postgres</OwnerName>
-    </table>
-    <table id="277" parent="265" name="warianty">
-      <ObjectId>16427</ObjectId>
-      <StateNumber>755</StateNumber>
-      <AccessMethodId>2</AccessMethodId>
-      <OwnerName>postgres</OwnerName>
-    </table>
-    <table id="278" parent="265" name="wycieczki">
-      <ObjectId>16436</ObjectId>
-      <StateNumber>755</StateNumber>
-      <AccessMethodId>2</AccessMethodId>
-      <OwnerName>postgres</OwnerName>
-    </table>
-    <column id="279" parent="273" name="id">
+    <column id="273" parent="270" name="id">
       <DefaultExpression>nextval(&apos;dodatki_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>751</StateNumber>
+      <StateNumber>761</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>16397</SequenceId>
+      <SequenceId>16415</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="280" parent="273" name="tytul">
+    <column id="274" parent="270" name="tytul">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>751</StateNumber>
+      <StateNumber>761</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="281" parent="273" name="termin">
+    <column id="275" parent="270" name="termin">
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>751</StateNumber>
+      <StateNumber>761</StateNumber>
       <StoredType>date|0s</StoredType>
       <TypeId>1082</TypeId>
     </column>
-    <column id="282" parent="273" name="koszt">
+    <column id="276" parent="270" name="koszt">
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>751</StateNumber>
+      <StateNumber>761</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="283" parent="273" name="liczba_miejsc">
+    <column id="277" parent="270" name="liczba_miejsc">
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <StateNumber>751</StateNumber>
+      <StateNumber>761</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="284" parent="273" name="opis">
+    <column id="278" parent="270" name="opis">
       <Position>6</Position>
-      <StateNumber>751</StateNumber>
+      <StateNumber>761</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <index id="285" parent="273" name="dodatki_pkey">
+    <index id="279" parent="270" name="dodatki_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16404</ObjectId>
+      <ObjectId>16422</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>751</StateNumber>
+      <StateNumber>761</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="286" parent="273" name="ix_dodatki_id">
+    <index id="280" parent="270" name="ix_dodatki_id">
       <ColNames>id</ColNames>
-      <ObjectId>16406</ObjectId>
-      <StateNumber>751</StateNumber>
+      <ObjectId>16424</ObjectId>
+      <StateNumber>761</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="287" parent="273" name="dodatki_pkey">
+    <key id="281" parent="270" name="dodatki_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16405</ObjectId>
+      <ObjectId>16423</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>751</StateNumber>
-      <UnderlyingIndexId>16404</UnderlyingIndexId>
+      <StateNumber>761</StateNumber>
+      <UnderlyingIndexId>16422</UnderlyingIndexId>
     </key>
-    <column id="288" parent="274" name="id">
+    <column id="282" parent="271" name="id">
       <DefaultExpression>nextval(&apos;klienci_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>751</StateNumber>
+      <StateNumber>754</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>16407</SequenceId>
+      <SequenceId>16389</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="289" parent="274" name="imie">
+    <column id="283" parent="271" name="imie">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>751</StateNumber>
+      <StateNumber>754</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="290" parent="274" name="nazwisko">
+    <column id="284" parent="271" name="nazwisko">
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>751</StateNumber>
+      <StateNumber>754</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="291" parent="274" name="email">
+    <column id="285" parent="271" name="email">
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>751</StateNumber>
+      <StateNumber>754</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <index id="292" parent="274" name="klienci_pkey">
+    <index id="286" parent="271" name="klienci_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16414</ObjectId>
+      <ObjectId>16396</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>751</StateNumber>
+      <StateNumber>754</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="293" parent="274" name="ix_klienci_email">
+    <index id="287" parent="271" name="ix_klienci_email">
       <ColNames>email</ColNames>
-      <ObjectId>16417</ObjectId>
-      <StateNumber>751</StateNumber>
+      <ObjectId>16398</ObjectId>
+      <StateNumber>754</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="294" parent="274" name="ix_klienci_id">
+    <index id="288" parent="271" name="ix_klienci_id">
       <ColNames>id</ColNames>
-      <ObjectId>16416</ObjectId>
-      <StateNumber>751</StateNumber>
+      <ObjectId>16399</ObjectId>
+      <StateNumber>754</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="295" parent="274" name="klienci_pkey">
+    <key id="289" parent="271" name="klienci_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16415</ObjectId>
+      <ObjectId>16397</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>751</StateNumber>
-      <UnderlyingIndexId>16414</UnderlyingIndexId>
+      <StateNumber>754</StateNumber>
+      <UnderlyingIndexId>16396</UnderlyingIndexId>
     </key>
-    <column id="296" parent="275" name="id">
-      <DefaultExpression>nextval(&apos;rezerwacje_id_seq&apos;::regclass)</DefaultExpression>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>755</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <SequenceId>16444</SequenceId>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="297" parent="275" name="klient_id">
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StateNumber>755</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="298" parent="275" name="wariant_id">
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StateNumber>755</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="299" parent="275" name="dodatki_ids">
-      <Position>4</Position>
-      <StateNumber>755</StateNumber>
-      <StoredType>integer[]|0s</StoredType>
-      <TypeId>1007</TypeId>
-    </column>
-    <column id="300" parent="275" name="data_zakupu">
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-      <StateNumber>755</StateNumber>
-      <StoredType>date|0s</StoredType>
-      <TypeId>1082</TypeId>
-    </column>
-    <foreign-key id="301" parent="275" name="rezerwacje_klient_id_fkey">
-      <ColNames>klient_id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16453</ObjectId>
-      <StateNumber>755</StateNumber>
-      <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>16408</RefTableId>
-    </foreign-key>
-    <foreign-key id="302" parent="275" name="rezerwacje_wariant_id_fkey">
-      <ColNames>wariant_id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16458</ObjectId>
-      <StateNumber>755</StateNumber>
-      <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>16427</RefTableId>
-    </foreign-key>
-    <index id="303" parent="275" name="rezerwacje_pkey">
-      <ColNames>id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16451</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>755</StateNumber>
-      <Unique>1</Unique>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <key id="304" parent="275" name="rezerwacje_pkey">
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16452</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>755</StateNumber>
-      <UnderlyingIndexId>16451</UnderlyingIndexId>
-    </key>
-    <column id="305" parent="276" name="id">
+    <column id="290" parent="272" name="id">
       <DefaultExpression>nextval(&apos;transporty_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>751</StateNumber>
+      <StateNumber>758</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>16418</SequenceId>
+      <SequenceId>16407</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="306" parent="276" name="typ">
+    <column id="291" parent="272" name="typ">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>751</StateNumber>
+      <StateNumber>758</StateNumber>
       <StoredType>typtransportu|0s</StoredType>
-      <TypeId>16390</TypeId>
+      <TypeId>16401</TypeId>
     </column>
-    <column id="307" parent="276" name="koszt">
+    <column id="292" parent="272" name="koszt">
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>751</StateNumber>
+      <StateNumber>758</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <index id="308" parent="276" name="transporty_pkey">
+    <index id="293" parent="272" name="transporty_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16423</ObjectId>
+      <ObjectId>16412</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>751</StateNumber>
+      <StateNumber>758</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="309" parent="276" name="ix_transporty_id">
+    <index id="294" parent="272" name="ix_transporty_id">
       <ColNames>id</ColNames>
-      <ObjectId>16425</ObjectId>
-      <StateNumber>751</StateNumber>
+      <ObjectId>16414</ObjectId>
+      <StateNumber>758</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="310" parent="276" name="transporty_pkey">
+    <key id="295" parent="272" name="transporty_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16424</ObjectId>
+      <ObjectId>16413</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>751</StateNumber>
-      <UnderlyingIndexId>16423</UnderlyingIndexId>
-    </key>
-    <column id="311" parent="277" name="id">
-      <DefaultExpression>nextval(&apos;warianty_id_seq&apos;::regclass)</DefaultExpression>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>755</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <SequenceId>16426</SequenceId>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="312" parent="277" name="termin">
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StateNumber>755</StateNumber>
-      <StoredType>date|0s</StoredType>
-      <TypeId>1082</TypeId>
-    </column>
-    <column id="313" parent="277" name="koszt">
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StateNumber>755</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="314" parent="277" name="ilosc_miejsc">
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StateNumber>755</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="315" parent="277" name="opis">
-      <Position>5</Position>
-      <StateNumber>755</StateNumber>
-      <StoredType>varchar(255)|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="316" parent="277" name="lista_dodatkow">
-      <Position>6</Position>
-      <StateNumber>755</StateNumber>
-      <StoredType>integer[]|0s</StoredType>
-      <TypeId>1007</TypeId>
-    </column>
-    <index id="317" parent="277" name="warianty_pkey">
-      <ColNames>id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16433</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>755</StateNumber>
-      <Unique>1</Unique>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <key id="318" parent="277" name="warianty_pkey">
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16434</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>755</StateNumber>
-      <UnderlyingIndexId>16433</UnderlyingIndexId>
-    </key>
-    <column id="319" parent="278" name="id">
-      <DefaultExpression>nextval(&apos;wycieczki_id_seq&apos;::regclass)</DefaultExpression>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>755</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <SequenceId>16435</SequenceId>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="320" parent="278" name="tytul">
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StateNumber>755</StateNumber>
-      <StoredType>varchar(255)|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="321" parent="278" name="organizator">
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StateNumber>755</StateNumber>
-      <StoredType>varchar(255)|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="322" parent="278" name="lokalizacja">
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StateNumber>755</StateNumber>
-      <StoredType>varchar(255)|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="323" parent="278" name="warianty">
-      <Position>5</Position>
-      <StateNumber>755</StateNumber>
-      <StoredType>integer[]|0s</StoredType>
-      <TypeId>1007</TypeId>
-    </column>
-    <index id="324" parent="278" name="wycieczki_pkey">
-      <ColNames>id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16442</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>755</StateNumber>
-      <Unique>1</Unique>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <key id="325" parent="278" name="wycieczki_pkey">
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16443</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>755</StateNumber>
-      <UnderlyingIndexId>16442</UnderlyingIndexId>
+      <StateNumber>758</StateNumber>
+      <UnderlyingIndexId>16412</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>
