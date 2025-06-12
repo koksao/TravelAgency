@@ -12,7 +12,7 @@ class Order(Base):
     variant_id = Column(Integer, ForeignKey("variant.id"))
     transport_id = Column(Integer, ForeignKey("transport.id"))
     order_date = Column(Date, default=date.today)
-    cost = Column(Numeric)
+    cost = Column(Numeric )
 
     user = relationship("User",back_populates="orders")
     variant = relationship("Variant", back_populates="orders")

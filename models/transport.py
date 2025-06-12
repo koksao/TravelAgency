@@ -17,4 +17,4 @@ class Transport(Base):
 
     variant_id = Column(Integer, ForeignKey("variant.id"))
     variant = relationship("Variant", back_populates="transports")
-    order = relationship("Order", back_populates="transports")
+    orders = relationship("Order", back_populates="transport")
