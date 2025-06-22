@@ -18,3 +18,15 @@ class Transport(Base):
     variant_id = Column(Integer, ForeignKey("variant.id"))
     variant = relationship("Variant", back_populates="transports")
     orders = relationship("Order", back_populates="transport")
+
+    @classmethod
+    def from_create_schema(cls, schema: 'TransportCreate') -> 'Transport':
+        return cls(
+            transport_type=schema.transport_type,
+            place_of_departure=schema.place_of_departure,
+            destination=schema.destination,
+            date_of_departure=schema.date_of_departure,
+            date_of_return=schema.date_of_return,
+            cost=schema.cost,
+            variant_id=schema.variant_id
+        )

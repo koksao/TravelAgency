@@ -11,6 +11,16 @@ class Addon(Base):
     availability = Column(Integer)
     date = Column(Date)
 
-    trip_id = Column(Integer, ForeignKey("trip.id"))
+    trip_id = Column(Integer, ForeignKey("trip.id", ondelete="CASCADE"))
     trip = relationship("Trip", back_populates="addons")
     orders = relationship("OrderAddon", back_populates="addon")
+
+    @classmethod
+    def from_create_schema(cls, schema: 'AddonCreate') -> 'Addon':
+        return cls(
+            description=schema.description,
+            cost=schema.cost,
+            availability=schema.availability,
+            date=schema.date,
+            trip_id=schema.trip_id
+        )
