@@ -3,12 +3,23 @@ from decimal import Decimal
 from sqlalchemy.orm import Session
 
 from exceptions import VariantNotFoundException, VariantUnavailableException, AddonNotFoundException, \
-    AddonUnavailableException, AddonTripMismatchException, TransportNotFoundException, OrderNotFoundException
+    AddonUnavailableException, AddonTripMismatchException, TransportNotFoundException, OrderNotFoundException, \
+    UnsupportedPaymentMethodException
 from models import Order, Transport, OrderAddon, Addon, Variant
+from models.payment_type import PaymentMethod
 from repositories import order_repository, variant_repository, addon_repository
 from schemas.order import OrderCreate
+from service.order_builder import OrderBuilder
+from service.payment.blik_payment import BlikPayment
+from service.payment.payment_interface import PaymentStrategy
+from service.payment.traditional_payment import TraditionalTransfer
+from service.user_service import get_user_by_email
+from service.transport_service import get_transport_by_variant_id_and_transport_type
+
 
 def create_order(order_data: OrderCreate, db: Session) -> Order:
+    user = get_user_by_email(db, order_data.user_email)
+
     variant = variant_repository.get_variant_by_id(db, order_data.variant_id)
     if variant is None:
         raise VariantNotFoundException()
@@ -19,12 +30,7 @@ def create_order(order_data: OrderCreate, db: Session) -> Order:
     variant.availability -= 1
     db.add(variant)
 
-    transport = db.query(Transport).filter_by(
-        variant_id=variant.id,
-        transport_type=order_data.transport_type
-    ).first()
-    if transport is None:
-        raise TransportNotFoundException()
+    transport = get_transport_by_variant_id_and_transport_type(db, variant.id, order_data.transport_type)
 
     total_cost = variant.cost + transport.cost
 
@@ -43,9 +49,14 @@ def create_order(order_data: OrderCreate, db: Session) -> Order:
             db.add(addon)
             total_cost += addon.cost
 
-    new_order = Order.from_create_schema(order_data)
-    new_order.transport_id = transport.id
-    new_order.cost = total_cost
+    builder = OrderBuilder()
+    new_order = (builder
+                 .set_user(user)
+                 .set_variant(variant)
+                 .set_transport(transport)
+                 .set_order_date(order_data.order_date)
+                 .set_cost(total_cost)
+                 .build())
 
     saved_order = order_repository.save_order(db, new_order)
 
@@ -54,7 +65,11 @@ def create_order(order_data: OrderCreate, db: Session) -> Order:
         db.add(order_addon)
 
     db.commit()
-    return  saved_order
+
+    payment_strategy = get_payment_strategy(order_data.payment_type)
+    payment_strategy.pay(total_cost)
+
+    return saved_order
 
 def delete_order(order_id: int, db: Session) -> Decimal:
     order = db.query(Order).filter(Order.id == order_id).first()
@@ -79,3 +94,12 @@ def delete_order(order_id: int, db: Session) -> Decimal:
     order_repository.delete_order(db, order)
 
     return refund.quantize(Decimal("0.01"))
+
+def get_payment_strategy(method: PaymentMethod) -> PaymentStrategy:
+    if method == PaymentMethod.BLIK:
+        return BlikPayment()
+    elif method == PaymentMethod.TRADITIONAL_TRANSFER:
+        return TraditionalTransfer()
+    else:
+        raise UnsupportedPaymentMethodException()
+

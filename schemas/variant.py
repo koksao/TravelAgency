@@ -10,5 +10,11 @@ class VariantCreate(BaseModel):
     cost: Decimal
     availability: int
 
+class VariantGet(BaseModel):
+    start_date: date
+    end_date: date
+    cost: Decimal
+    availability: int
+
     class Config:
         from_attributes = True

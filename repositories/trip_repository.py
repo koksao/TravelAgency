@@ -25,3 +25,7 @@ def delete_trip_by_id(db: Session, trip_id: int) -> Trip:
     trip = get_trip_by_id(db, trip_id)
     db.delete(trip)
     db.commit()
+
+def get_all_trips(db: Session) -> list[Trip]:
+    trips = db.query(Trip).all()
+    return trips

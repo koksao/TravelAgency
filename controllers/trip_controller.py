@@ -1,9 +1,11 @@
+from typing import List
+
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from starlette import status
 
 from exceptions import CreationException
-from schemas.trip import TripCreate
+from schemas.trip import TripCreate, TripGet
 from service import trip_service
 from session import get_db
 
@@ -21,3 +23,7 @@ def create_trip(trip: TripCreate, db: Session = Depends(get_db)):
 def delete_trip_endpoint(trip_id: int, db: Session = Depends(get_db)):
     trip_service.delete_trip(trip_id, db)
     return {"Trip deleted"}
+
+@router.get("/", response_model=List[TripGet])
+def read_all_trips(db: Session = Depends(get_db)):
+    return trip_service.get_all_trips(db)

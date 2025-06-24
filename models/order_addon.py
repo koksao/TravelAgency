@@ -9,7 +9,6 @@ class OrderAddon(Base):
 
     order_id = Column(Integer,ForeignKey("order.id"), primary_key=True)
     addon_id = Column(Integer, ForeignKey("addon.id"), primary_key=True)
-    quantity = Column(Integer)
 
     order = relationship("Order", back_populates="addons")
     addon = relationship("Addon", back_populates="orders")

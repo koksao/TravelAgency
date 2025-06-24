@@ -1,6 +1,8 @@
 from sqlalchemy import Column, Integer, ForeignKey, String, Numeric, Date
 from sqlalchemy.orm import relationship
 from database import Base
+from schemas.addon import AddonCreate
+
 
 class Addon(Base):
     __tablename__ = "addon"

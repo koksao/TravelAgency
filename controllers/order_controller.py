@@ -19,5 +19,5 @@ def create_order(order: OrderCreate, db: Session = Depends(get_db)):
 
 @router.delete("/{order_id}")
 def delete_user_endpoint(order_id: int, db: Session = Depends(get_db)):
-    order_service.delete_order(order_id, db)
-    return {"Order deleted"}
+    refund = order_service.delete_order(order_id, db)
+    return {f"Order deleted, refund: {refund}"}

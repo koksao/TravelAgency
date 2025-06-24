@@ -11,3 +11,10 @@ class AddonCreate(BaseModel):
 
     class Config:
         from_attributes = True
+
+class AddonGet(BaseModel):
+    description: str
+    cost: Decimal
+    availability: int
+    date: date
+    trip_id: int

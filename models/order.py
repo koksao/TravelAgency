@@ -25,6 +25,7 @@ class Order(Base):
     def from_create_schema(cls, schema: 'OrderCreate') -> 'Order':
         return cls(
             transport_type=schema.transport_type,
+            payment_type = schema.payment_type,
             place_of_departure=schema.place_of_departure,
             destination=schema.destination,
             date_of_departure=schema.date_of_departure,

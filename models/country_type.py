@@ -12,3 +12,4 @@ class Country(str, Enum):
     SWEDEN = "Sweden"
     NORWAY = "Norway"
     FINLAND = "Finland"
+    AFRICA = "Africa"

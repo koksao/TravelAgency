@@ -52,8 +52,8 @@ class AddonTripMismatchException(AppException):
 
 
 class UserNotFoundException(AppException):
-    def __init__(self, user_id: int):
-        super().__init__(f"User with id {user_id} not found.")
+    def __init__(self):
+        super().__init__(f"User not found.")
 
 
 class TripNotFoundException(AppException):
@@ -62,10 +62,14 @@ class TripNotFoundException(AppException):
 
 
 class TransportNotFoundException(AppException):
-    def __init__(self, transport_id: int):
-        super().__init__(f"Transport with id {transport_id} not found.")
+    def __init__(self):
+        super().__init__(f"Transport not found.")
 
 
 class OrderNotFoundException(AppException):
     def __init__(self, order_id: int):
         super().__init__(f"Order with id {order_id} not found.")
+
+class UnsupportedPaymentMethodException(AppException):
+    def __init__(self):
+        super().__init__("Unsupported payment method")

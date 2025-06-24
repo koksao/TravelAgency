@@ -17,7 +17,6 @@ class TransportCreate(BaseModel):
         from_attributes = True
 
 class TransportRead(BaseModel):
-    id: int
     transport_type: TransportType
     place_of_departure: str
     destination: str

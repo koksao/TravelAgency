@@ -21,3 +21,9 @@ def delete_user(user_id: int, db: Session) -> None:
         raise UserNotFoundException(user_id)
 
     user_repository.delete_user_by_id(db, user_id)
+
+def get_user_by_email(db: Session, email: str) -> User:
+    user = user_repository.get_user_by_email(db, email)
+    if user is None:
+        raise UserNotFoundException()
+    return user
