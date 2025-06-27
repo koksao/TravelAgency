@@ -21,3 +21,7 @@ def create_user(user: UserCreate, db: Session = Depends(get_db)):
 def delete_user_endpoint(user_id: int, db: Session = Depends(get_db)):
     user_service.delete_user(user_id, db)
     return {"User deleted"}
+
+@router.get("/{user_id}")
+def get_user_by_id(user_id: int, db: Session = Depends(get_db)):
+    return user_service.get_user_by_id(user_id, db)

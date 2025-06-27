@@ -17,3 +17,6 @@ def get_addons_by_trip_id(trip_id: int, db: Session) -> List[AddonGet]:
     if not addons:
         raise AddonNotFoundException()
     return addons
+
+def delete_addon(addon_id: int, db: Session):
+    addon_repository.delete_addon(db, addon_id)

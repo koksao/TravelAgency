@@ -18,3 +18,10 @@ def get_addons_by_ids(db: Session, ids: List[int]) -> list[type[Addon]]:
 def get_addons_by_trip_id(db: Session, trip_id: int) -> List[AddonGet]:
     addons = db.query(Addon).filter(Addon.trip_id == trip_id).all()
     return addons
+
+def delete_addon(db: Session, addon_id: int) -> None:
+    addon = db.query(Addon).filter(Addon.id == addon_id).first()
+    if addon is not None:
+        db.delete(addon)
+        db.commit()
+        return True

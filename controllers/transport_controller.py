@@ -22,3 +22,7 @@ def create_transport(transport: TransportCreate, db: Session = Depends(get_db)):
 @router.get('/{variant_id}', response_model=List[TransportRead])
 def get_transports_by_variant(variant_id: int, db: Session = Depends(get_db)):
     return transport_service.get_transports_by_variant_id(db, variant_id)
+
+@router.delete('/{transport_id}')
+def delete_(transport_id: int, db: Session = Depends(get_db)):
+    return transport_service.delete_transport(transport_id, db)

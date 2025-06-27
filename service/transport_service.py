@@ -25,6 +25,9 @@ def create_transport(db: Session, transport_data: TransportCreate) -> Transport:
     new_transport = Transport.from_create_schema(transport_data)
     return transport_repository.save_transport(db, new_transport)
 
+def delete_transport(db: Session, transport_id: int) -> None:
+    transport_repository.delete_transport(db, transport_id)
+
 def get_transport_by_variant_id_and_transport_type(db: Session, variant_id: int, transport_type: TransportType) -> Transport:
     transport = transport_repository.get_transport_by_variant_and_type(db, variant_id, transport_type)
     if transport is None:

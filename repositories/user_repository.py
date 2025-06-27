@@ -20,5 +20,5 @@ def delete_user_by_id(db: Session, user_id: int) -> None:
         db.commit()
 
 
-def get_user_by_id(db: Session, user_id: int) -> Optional[User]:
+def get_user_by_id( user_id: int, db: Session) -> Optional[User]:
     return db.query(User).filter(User.id == user_id).first()

@@ -27,3 +27,9 @@ def get_user_by_email(db: Session, email: str) -> User:
     if user is None:
         raise UserNotFoundException()
     return user
+
+def get_user_by_id(db: Session, user_id: int) -> User:
+    user = user_repository.get_user_by_id(db, user_id)
+    if user is None:
+        raise UserNotFoundException()
+    return user

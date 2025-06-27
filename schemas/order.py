@@ -17,3 +17,15 @@ class OrderCreate(BaseModel):
 
     class Config:
         from_attributes = True
+
+class OrderGet(BaseModel):
+    id: int
+    user_email: str
+    variant_id: int
+    transport_type: TransportType
+    order_date: date = date.today()
+    payment_type: PaymentMethod
+    addon_ids: Optional[List[int]] = []
+
+    class Config:
+        from_attributes = True

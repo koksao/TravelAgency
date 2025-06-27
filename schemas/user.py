@@ -11,3 +11,16 @@ class UserCreate(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class UserGet(BaseModel):
+    id: int
+    first_name: str
+    last_name: str
+    email: EmailStr
+    date_of_birth: date
+    id_series: str
+    id_number: str
+
+    class Config:
+        from_attributes = True

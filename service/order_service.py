@@ -95,6 +95,12 @@ def delete_order(order_id: int, db: Session) -> Decimal:
 
     return refund.quantize(Decimal("0.01"))
 
+def get_order_by_id(order_id: int, db: Session) -> Order:
+    order = db.query(Order).filter(Order.id == order_id).first()
+    if not order:
+        raise OrderNotFoundException(order_id)
+    return order
+
 def get_payment_strategy(method: PaymentMethod) -> PaymentStrategy:
     if method == PaymentMethod.BLIK:
         return BlikPayment()

@@ -15,7 +15,7 @@ class Addon(Base):
 
     trip_id = Column(Integer, ForeignKey("trip.id", ondelete="CASCADE"))
     trip = relationship("Trip", back_populates="addons")
-    orders = relationship("OrderAddon", back_populates="addon")
+    orders = relationship("OrderAddon", back_populates="addon", cascade="all, delete-orphan")
 
     @classmethod
     def from_create_schema(cls, schema: 'AddonCreate') -> 'Addon':
